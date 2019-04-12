@@ -9,8 +9,7 @@ import java.sql.Statement;
 
 public class TestTmall {
 	/**
-	 * ´´½¨²âÊÔÊı¾İ
-	 * @param args
+	 * æ’å…¥æµ‹è¯•æ•°æ®
 	 */
 	public static void main(String[] args) {
 		Connection connection = null;
@@ -22,11 +21,11 @@ public class TestTmall {
 			
 			ps = connection.createStatement();
 			for(int i = 1; i <= 10;i++) {
-				String sqlFormat = "insert into category values(null,'²âÊÔ·ÖÀà%d')";
+				String sqlFormat = "insert into category values(null,'ï¿½ï¿½ï¿½Ô·ï¿½ï¿½ï¿½%d')";
 				String sql = String.format(sqlFormat, i);
 				ps.execute(sql);
 			}
-			System.out.println("³É¹¦´´½¨10ÌõÊı¾İ");
+			System.out.println("æˆåŠŸæ’å…¥10æ¡æ•°æ®");
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

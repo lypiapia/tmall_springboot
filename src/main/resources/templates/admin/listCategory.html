@@ -9,6 +9,7 @@
 		$(function(){
 			var data4Vue = {
 				uri : 'categories',
+				pagination:{},
 				beans : []
 			};
 			
@@ -16,19 +17,25 @@
 				el:'#workingArea',
 				data:data4Vue,
 				mounted:function(){ //钩子，表示等待Vue对象加载完毕后，调用该函数
-					this.list();
+					this.list(0);
 				},
 				methods:{
-					list:function(){
-						var url = this.uri;
+					list:function(start){
+						var url = this.uri+"?start="+start;
 						axios.get(url).then(function(response){
-							vm.beans = response.data;
+							vm.pagination = response.data;
+							vm.beans = response.data.content;
 						});
+					},
+					jump:function(page){
+						jump(page,vm);
+					},
+					jumpByNumber:function(start){
+						jumpByNumber(start,vm);
 					}
 				}
 			});
 		});
-	
     </script>
 	        <div id="workingArea" >
             <h1 class="label label-info" >分类管理</h1>
@@ -72,6 +79,8 @@
                     </tbody>
                 </table>
             </div>
+            
+            <div th:replace="admin/adminPage::html"></div>
         </div>
         <div th:replace="admin/adminFooter::html" ></div>
 	</body>	
