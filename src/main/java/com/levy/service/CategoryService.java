@@ -30,4 +30,7 @@ public class CategoryService {
 		return new Page4Navigator<>(pageFromJPA,navigatorPages);
 	}
 	
+	public void add(Category bean) {
+		categoryDAO.save(bean);
+	}
 }

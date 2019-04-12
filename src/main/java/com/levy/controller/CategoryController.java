@@ -1,13 +1,23 @@
 package com.levy.controller;
 
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.levy.pojo.Category;
 import com.levy.service.CategoryService;
+import com.levy.utils.ImageUtil;
 import com.levy.utils.Page4Navigator;
 
 @RestController
@@ -29,5 +39,23 @@ public class CategoryController {
 		Page4Navigator<Category> page = categoryService.list(start, size, 5); //默认导航栏显示5个页数
 		return page;
 	}
+	
+	@PostMapping("/categories")
+	public Object add(Category bean,MultipartFile image,HttpServletRequest request) throws IllegalStateException, IOException {
+		categoryService.add(bean);	//保存category数据
+		saveOrUpdateImageFile(bean,image,request);
+		return bean;
+	}
+	
+	 public void saveOrUpdateImageFile(Category bean, MultipartFile image, HttpServletRequest request)
+	            throws IOException {
+	        File imageFolder= new File(request.getServletContext().getRealPath("img/category"));
+	        File file = new File(imageFolder,bean.getId()+".jpg");
+	        if(!file.getParentFile().exists())
+	            file.getParentFile().mkdirs();
+	        image.transferTo(file);
+	        BufferedImage img = ImageUtil.change2jpg(file);
+	        ImageIO.write(img, "jpg", file);
+	    }
 	
 }
