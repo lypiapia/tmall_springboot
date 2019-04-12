@@ -9,7 +9,9 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,6 +49,20 @@ public class CategoryController {
 		return bean;
 	}
 	
+	@DeleteMapping("/categories/{id}")
+	public String delete(@PathVariable("id")int id,HttpServletRequest request)  throws Exception{
+		//在数据库中删除记录
+		categoryService.delete(id);
+		//将对应分类的图片删除
+		File imageFolder = new File(request.getServletContext().getRealPath("img/category"));
+		File file = new File(imageFolder,id+".jpg");
+		file.delete();
+		return null;
+	}
+	 
+	 
+	
+	 
 	 public void saveOrUpdateImageFile(Category bean, MultipartFile image, HttpServletRequest request)
 	            throws IOException {
 	        File imageFolder= new File(request.getServletContext().getRealPath("img/category"));
@@ -57,5 +73,4 @@ public class CategoryController {
 	        BufferedImage img = ImageUtil.change2jpg(file);
 	        ImageIO.write(img, "jpg", file);
 	    }
-	
 }

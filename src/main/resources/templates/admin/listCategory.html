@@ -52,10 +52,22 @@
                     this.file = event.target.files[0];
                 },
                 jump: function(page){
-                    jump(page,vue); //定义在adminHeader.html 中
+                    jump(page,vue); 
                 },
                 jumpByNumber: function(start){
                     jumpByNumber(start,vue);
+                },
+                deleteBean: function(id){
+                	if(!checkDeleteLink()){
+                		return;
+                	}
+                	var url = this.uri + "/" + id;
+                	axios.delete(url).then(function(response){
+                		if(response.data.length != 0){
+                			alert(response.data);
+                		}else
+                			vue.list(0);
+                	});
                 }
             }
         });

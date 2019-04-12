@@ -18,11 +18,13 @@ public class CategoryService {
 	@Autowired
 	CategoryDAO categoryDAO;
 	
+	//不带分页的查询分类
 	public List<Category> list(){
 		Sort sort = new Sort(Sort.Direction.DESC, "id");
 		return categoryDAO.findAll(sort);
 	}
 	
+	//带分页的查询分类
 	public Page4Navigator<Category> list(int start,int size,int navigatorPages){
 		Sort sort = new Sort(Sort.Direction.DESC,"id");
 		Pageable pageable = new PageRequest(start, size, sort);
@@ -30,7 +32,13 @@ public class CategoryService {
 		return new Page4Navigator<>(pageFromJPA,navigatorPages);
 	}
 	
+	//新增分类
 	public void add(Category bean) {
 		categoryDAO.save(bean);
+	}
+	
+	//删除分类
+	public void delete(int id) {
+		categoryDAO.delete(id);
 	}
 }
