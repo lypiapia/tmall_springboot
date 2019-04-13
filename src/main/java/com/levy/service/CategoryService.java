@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.levy.dao.CategoryDAO;
 import com.levy.pojo.Category;
 import com.levy.utils.Page4Navigator;
@@ -46,4 +47,15 @@ public class CategoryService {
 	public void delteAll() {
 		categoryDAO.deleteAll();
 	}
+	
+	//根据id获得Category
+	public Category get(int id) {
+		return categoryDAO.findOne(id);
+	}
+	
+	//修改category
+	public void update(Category category) {
+		categoryDAO.save(category);
+	}
+	
 }

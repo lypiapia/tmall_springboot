@@ -20,12 +20,12 @@ public class TestTmall {
 					+ "useUnicode=true&characterEncoding=utf8","root","root");
 			
 			ps = connection.createStatement();
-			for(int i = 1; i <= 10;i++) {
+			for(int i = 1; i <= 50;i++) {
 				String sqlFormat = "insert into category values(null,'���Է���%d')";
 				String sql = String.format(sqlFormat, i);
 				ps.execute(sql);
 			}
-			System.out.println("成功插入10条数据");
+			System.out.println("成功插入50条数据");
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
