@@ -60,7 +60,14 @@ public class CategoryController {
 		return null;
 	}
 	 
-	 
+	@DeleteMapping("/deleteAll")
+	public String deleteAll(HttpServletRequest request) {
+		categoryService.delteAll();
+		File imageFolder = new File(request.getServletContext().getRealPath("img/category"));
+		imageFolder.delete();
+		System.out.println("删除所有成功");
+		return null;
+	}
 	
 	 
 	 public void saveOrUpdateImageFile(Category bean, MultipartFile image, HttpServletRequest request)

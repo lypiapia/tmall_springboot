@@ -41,4 +41,9 @@ public class CategoryService {
 	public void delete(int id) {
 		categoryDAO.delete(id);
 	}
+	
+	//删除所有分类
+	public void delteAll() {
+		categoryDAO.deleteAll();
+	}
 }
