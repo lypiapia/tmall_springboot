@@ -43,10 +43,6 @@ public class CategoryService {
 		categoryDAO.delete(id);
 	}
 	
-	//删除所有分类
-	public void delteAll() {
-		categoryDAO.deleteAll();
-	}
 	
 	//根据id获得Category
 	public Category get(int id) {
