@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 
@@ -41,6 +42,17 @@ public class Product {
 	private int stock;
 	
 	private Date createDate;
+	
+	@Transient	//加入@Transient注解，说明该实体类不是永久的，不会保存到数据库，只会在程序中使用它
+	private ProductImage productImage;
+	
+	public ProductImage getFirstProductImage() {
+        return productImage;
+    }
+    public void setFirstProductImage(ProductImage productImage) {
+        this.productImage = productImage;
+    }
+	
 
 	public int getId() {
 		return id;

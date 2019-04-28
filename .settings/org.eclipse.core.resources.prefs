@@ -9,6 +9,7 @@ encoding//src/main/resources/templates/admin/editProduct.html=UTF-8
 encoding//src/main/resources/templates/admin/editProperty.html=UTF-8
 encoding//src/main/resources/templates/admin/listCategory.html=UTF-8
 encoding//src/main/resources/templates/admin/listProduct.html=UTF-8
+encoding//src/main/resources/templates/admin/listProductImage.html=UTF-8
 encoding//src/main/resources/templates/admin/listProperty.html=UTF-8
 encoding//src/test/java/com/levy/test/TestTmall.java=UTF-8
 encoding/<project>=UTF-8

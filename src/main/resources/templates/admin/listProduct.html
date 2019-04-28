@@ -5,7 +5,7 @@
 	<div th:replace="admin/adminNavigator::html"></div>
 	<script>
 		$(function(){
-			var cid=getUrlParms("cid");	//��ȡ��ַ��cid�Ĳ���
+			var cid=getUrlParms("cid");	
 			var data4Vue = {
 				uri:'products',
 				beans:[],
@@ -66,7 +66,7 @@
 						});
 					},
 					 jump: function(page){
-		                    jump(page,vue); //������adminHeader.html ��
+		                    jump(page,vue); 
 		                },
 		                jumpByNumber: function(start){
 		                    jumpByNumber(start,vue);
