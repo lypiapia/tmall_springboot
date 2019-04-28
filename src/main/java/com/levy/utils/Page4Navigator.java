@@ -1,5 +1,6 @@
 package com.levy.utils;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -36,10 +37,10 @@ public class Page4Navigator<T> {
 		
 	}
 	
-	public Page4Navigator(Page<T> pageFromJPA,int navigatorPages) {
+	public Page4Navigator(Page<T> pageFromJPA,int navigatePages) {
 		this.pageFromJPA = pageFromJPA;
 		
-		this.navigatorPages = navigatorPages;
+		this.navigatorPages = navigatePages;
 		
 		this.totalPages = pageFromJPA.getTotalPages();
 		
@@ -213,4 +214,15 @@ public class Page4Navigator<T> {
 	public void setNavigatePageNums(int[] navigatePageNums) {
 		this.navigatePageNums = navigatePageNums;
 	}
+
+	@Override
+	public String toString() {
+		return "Page4Navigator [pageFromJPA=" + pageFromJPA + ", navigatorPages=" + navigatorPages + ", totalPages="
+				+ totalPages + ", number=" + number + ", totalElements=" + totalElements + ", size=" + size
+				+ ", numberOfElements=" + numberOfElements + ", content=" + content + ", isHasContent=" + isHasContent
+				+ ", isFirst=" + isFirst + ", isLast=" + isLast + ", isHasNext=" + isHasNext + ", isHasPrevious="
+				+ isHasPrevious + ", navigatePageNums=" + Arrays.toString(navigatePageNums) + "]";
+	}
+	
+	
 }
