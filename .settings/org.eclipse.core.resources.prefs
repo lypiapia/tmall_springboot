@@ -8,6 +8,7 @@ encoding//src/main/resources/templates/admin/adminPage.html=UTF-8
 encoding//src/main/resources/templates/admin/editCategory.html=UTF-8
 encoding//src/main/resources/templates/admin/editProduct.html=UTF-8
 encoding//src/main/resources/templates/admin/editProperty.html=UTF-8
+encoding//src/main/resources/templates/admin/editPropertyValue.html=UTF-8
 encoding//src/main/resources/templates/admin/listCategory.html=UTF-8
 encoding//src/main/resources/templates/admin/listProduct.html=UTF-8
 encoding//src/main/resources/templates/admin/listProductImage.html=UTF-8

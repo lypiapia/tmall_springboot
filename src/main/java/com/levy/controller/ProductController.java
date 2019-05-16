@@ -35,9 +35,6 @@ public class ProductController {
 		//设置产品图片
 		productImageService.setFirstProdutImages(page4Navigator.getContent());
 		page4Navigator.getContent();
-		for(Product list: page4Navigator.getContent()) {
-			System.out.println(list.getFirstProductImage());
-		}
 		return page4Navigator;
 	}
 	
