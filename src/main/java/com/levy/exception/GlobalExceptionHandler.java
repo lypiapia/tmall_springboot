@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
 		e.printStackTrace();
 		Class constraintViolationException = Class.forName("org.hibernate.exception.ConstraintViolationException");
 		if(null!=e.getCause()  && constraintViolationException==e.getCause().getClass()) {
-            return "Î¥·´ÁËÔ¼Êø£¬¶à°ëÊÇÍâ¼üÔ¼Êø";
+            return "è¿åäº†çº¦æŸï¼Œå¤šåŠæ˜¯å¤–é”®çº¦æŸ";
         }
         return e.getMessage();
 	}

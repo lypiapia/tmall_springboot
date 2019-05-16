@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/levy/config/CORSConfiguration.java=UTF-8
+encoding//src/main/java/com/levy/exception/GlobalExceptionHandler.java=UTF-8
 encoding//src/main/resources/application.properties=GBK
 encoding//src/main/resources/templates/admin/adminFooter.html=UTF-8
 encoding//src/main/resources/templates/admin/adminNavigator.html=UTF-8
