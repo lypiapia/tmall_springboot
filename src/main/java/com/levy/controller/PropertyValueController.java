@@ -26,7 +26,6 @@ public class PropertyValueController {
 	@GetMapping("products/{id}/propertyValues")
 	public List<PropertyValue> list(@PathVariable int id) throws Exception{
 		Product product =  productService.get(id);
-		System.out.println(product);
 		propertyValueService.init(product);
 		List<PropertyValue> list = propertyValueService.list(product);
 		return list;
